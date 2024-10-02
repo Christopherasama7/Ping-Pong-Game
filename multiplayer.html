@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='multiplayer.css'>
+</head>
+<body>
+    <h1>Ping Pong - Multiplayer</h1>
+    <div class="game-container">
+        <canvas id="pingpong-table" width="1000" height="550"></canvas>
+    </div>
+
+    <!-- Virtual controls for touch devices -->
+    <div class="controls">
+        <!-- Player 1 Controls -->
+        <div>
+            <button class="control-btn" id="player1-up">⬆️</button>
+            <button class="control-btn" id="player1-down">⬇️</button>
+        </div>
+
+        <!-- Player 2 Controls -->
+        <div>
+            <button class="control-btn" id="player2-up">⬆️</button>
+            <button class="control-btn" id="player2-down">⬇️</button>
+        </div>
+    </div>
+
+    <button><a href="index.html" style="color: white;">Exit</a></button>
+
+
+    <script>
+        // Check if the device is a touch device (phones and tablets)
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+
+        if (isTouchDevice) {
+            // Show the virtual controls for touch devices
+            document.querySelector('.controls').style.display = 'flex';
+
+            // Player 1 controls
+            document.getElementById('player1-up').addEventListener('touchstart', () => player1Up = true);
+            document.getElementById('player1-up').addEventListener('touchend', () => player1Up = false);
+            document.getElementById('player1-down').addEventListener('touchstart', () => player1Down = true);
+            document.getElementById('player1-down').addEventListener('touchend', () => player1Down = false);
+
+            // Player 2 controls
+            document.getElementById('player2-up').addEventListener('touchstart', () => player2Up = true);
+            document.getElementById('player2-up').addEventListener('touchend', () => player2Up = false);
+            document.getElementById('player2-down').addEventListener('touchstart', () => player2Down = true);
+            document.getElementById('player2-down').addEventListener('touchend', () => player2Down = false);
+        }
+    </script>
+    <script src="multiplayer.js"></script>
+</body>
+</html>
+
+</body>
+</html>

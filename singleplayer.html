@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ping Pong Game App</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='singleplayer.css'>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="400"></canvas>
+    <h1 id="player1Score">0</h1>
+    <h1 id="player2Score">0</h1>
+
+    <!-- Virtual controls for touch devices -->
+    <div class="controls">
+        <button class="control-btn" id="btn-up">⬆️</button>
+        <button class="control-btn" id="btn-down">⬇️</button>
+    </div>
+
+    <button><a href="index.html" style="color: white;">Exit</a></button>
+
+
+    <script>
+        // Check if the device is a touch device (phones and tablets)
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+
+        if (isTouchDevice) {
+            // Show the virtual controls for touch devices
+            document.querySelector('.controls').style.display = 'flex';
+
+            // Add event listeners to the buttons for moving the paddle
+            document.getElementById('btn-up').addEventListener('touchstart', () => playerUp = true);
+            document.getElementById('btn-up').addEventListener('touchend', () => playerUp = false);
+            document.getElementById('btn-down').addEventListener('touchstart', () => playerDown = true);
+            document.getElementById('btn-down').addEventListener('touchend', () => playerDown = false);
+        }
+    </script>
+    <script src="singleplayer.js"></script>
+</body>
+</html>
